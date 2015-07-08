@@ -1,15 +1,8 @@
-# Feature 2: Calculate the median number of unique words per tweet, and update 
-# this median as tweets come in. 
-
-# My design approach is to use the two heaps solution to the streaming median
-# problem.  It has O(logN) time complexity so should scale well.  
-# The weakness is that the heaps will eventually exhaust memory.  I see no
-# good solution to this unless you change the requirement to a moving window
-# median or a statistical estimation of the median using sampling or binning.
-
-"""
-Thanks to Arden Dertat for the streamMedian class.
-http://www.ardendertat.com/2011/11/03/programming-interview-questions-13-median-of-integer-stream/  
+"""Thanks to Arden Dertat for coding the two heaps solution, i.e., 
+streamMedian class.
+http://www.ardendertat.com/2011/11/03/programming-interview-questions-13-median-of-integer-stream/
+The two heaps solution to streaming median has O(logn) complexity so should
+scale well.  
 """
 import sys
 import heapq
