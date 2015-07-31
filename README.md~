@@ -64,26 +64,14 @@ http://stackoverflow.com/questions/10657503/find-running-median-from-a-stream-of
 and here:
 http://www.ardendertat.com/2011/11/03/programming-interview-questions-13-median-of-integer-stream/
 
-I originally used the two-heap approach because it has O(logN) time complexity and I found
+I used the two-heap approach because it has O(logN) time complexity and I found
 an implementation that was short and easy to understand.  (Computing the median
 is only O(1) but insertion is O(logN).)
 
-I was not satisfied with this approach because the space complexity will
+I am not satisfied with this approach because the space complexity will
 eventually kill it.  In real life I would push back on the requirement to see 
 if a sampling approach to find an approximate median or a moving window median
-would be sufficient.  Otherwise the heap will eventually run out of memory. 
-
-So I refactored median_unique.py to create median_unique_hist.py.  This approach
-uses a Python dictionary to store a histogram of number of words per tweet.
-Since tweets are limited to 140 characters, number of words per tweet must be 
-<= 140.  By using the structure of the data we can constrain the integers to a
-fixed set of values.  This solution uses a simple dict with only 140 elements.
-There are a bunch of assignment statements and some dictionary lookups.  The
-loops iterate at most 140 times.  Since dictionary has hash table performance,
-the entire process should be roughly O(1) regardless of the number of tweets
-processed.  The only limiting factor here is the size of an integer, which I 
-believe is 2*64 (64 bits).  That's larger than the number of grains of sand on
-Earth, so we're good for a while.  
+would be sufficient.  Otherwise the heap will eventually run out of memory.  
 
 SOME NOTES ON SIZE OF THE PROBLEM:
 
